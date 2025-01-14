@@ -1,36 +1,45 @@
 import RPi.GPIO as GPIO
 import time
+import threading
 
-# Ustawienie numeracji pinów GPIO na fizyczne numery pinów
-GPIO.setmode(GPIO.BOARD)
+# Ustawienia GPIO
+GPIO.setmode(GPIO.BCM)
+LED1_PIN = 17
+LED2_PIN = 18
 
-# Definicja pinów, do których podłączone są diody
-LED1 = 17
-LED2 = 18
+# Konfiguracja pinów jako wyjścia
+GPIO.setup(LED1_PIN, GPIO.OUT)
+GPIO.setup(LED2_PIN, GPIO.OUT)
 
-# Ustawienie pinów jako wyjścia
-GPIO.setup(LED1, GPIO.BCM)
-GPIO.setup(LED2, GPIO.BCM)
-
-# Funkcja do mrugania diodą
-def mrugaj(pin, czas):
+# Funkcja do mrugania LED1
+def blink_led1():
     while True:
-        GPIO.output(pin, GPIO.HIGH)  # Zapal dioda
-        time.sleep(czas)
-        GPIO.output(pin, GPIO.LOW)   # Zgaś dioda
-        time.sleep(czas)
+        GPIO.output(LED1_PIN, GPIO.HIGH)
+        time.sleep(1)  # 1 sekunda
+        GPIO.output(LED1_PIN, GPIO.LOW)
+        time.sleep(1)
 
-# Utworzenie dwóch wątków do mrugania diodami
+# Funkcja do mrugania LED2
+def blink_led2():
+    while True:
+        GPIO.output(LED2_PIN, GPIO.HIGH)
+        time.sleep(0.3)  # 0.3 sekundy
+        GPIO.output(LED2_PIN, GPIO.LOW)
+        time.sleep(0.3)
+
+# Uruchamianie wątków
 try:
-    import threading
-    thread1 = threading.Thread(target=mrugaj, args=(LED1, 1))
-    thread2 = threading.Thread(target=mrugaj, args=(LED2, 0.3))
+    thread1 = threading.Thread(target=blink_led1)
+    thread2 = threading.Thread(target=blink_led2)
+    thread1.daemon = True  # Dzięki temu wątki zakończą się przy zamykaniu programu
+    thread2.daemon = True
     thread1.start()
     thread2.start()
 
+    # Program działa w pętli, dopóki nie zostanie przerwany
     while True:
-        pass
+        time.sleep(0.1)
 
 except KeyboardInterrupt:
-    # Czyszczenie stanu pinów GPIO przy przerwaniu
-    GPIO.cleanup()
+    print("Zamykanie programu...")
+    GPIO.cleanup()  # Czyszczenie ustawień GPIO
