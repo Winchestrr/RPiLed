@@ -9,8 +9,8 @@ LED1 = 17
 LED2 = 18
 
 # Ustawienie pinów jako wyjścia
-GPIO.setup(LED1, GPIO.OUT)
-GPIO.setup(LED2, GPIO.OUT)
+GPIO.setup(LED1, GPIO.BCM)
+GPIO.setup(LED2, GPIO.BCM)
 
 # Funkcja do mrugania diodą
 def mrugaj(pin, czas):
