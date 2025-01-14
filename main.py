@@ -6,10 +6,16 @@ import threading
 GPIO.setmode(GPIO.BCM)
 LED1_PIN = 17
 LED2_PIN = 18
+LED3_PIN = 22
+LED4_PIN = 23
+LED5_PIN = 24
 
 # Konfiguracja pinów jako wyjścia
 GPIO.setup(LED1_PIN, GPIO.OUT)
 GPIO.setup(LED2_PIN, GPIO.OUT)
+GPIO.setup(LED3_PIN, GPIO.OUT)
+GPIO.setup(LED4_PIN, GPIO.OUT)
+GPIO.setup(LED5_PIN, GPIO.OUT)
 
 # Funkcja do mrugania LED1
 def blink_led1():
@@ -27,19 +33,25 @@ def blink_led2():
         GPIO.output(LED2_PIN, GPIO.LOW)
         time.sleep(0.05)
 
-# Uruchamianie wątków
-try:
-    thread1 = threading.Thread(target=blink_led1)
-    thread2 = threading.Thread(target=blink_led2)
-    thread1.daemon = True  # Dzięki temu wątki zakończą się przy zamykaniu programu
-    thread2.daemon = True
-    thread1.start()
-    thread2.start()
-
-    # Program działa w pętli, dopóki nie zostanie przerwany
+def wave():
     while True:
-        time.sleep(0.1)
+        GPIO.output(LED1_PIN, GPIO.HIGH)
+        time.sleep(0.2)
+        GPIO.output(LED2_PIN, GPIO.HIGH)
+        time.sleep(0.2)
+        GPIO.output(LED3_PIN, GPIO.HIGH)
+        time.sleep(0.2)
+        GPIO.output(LED1_PIN, GPIO.LOW)
+        GPIO.output(LED4_PIN, GPIO.HIGH)
+        time.sleep(0.2)
+        GPIO.output(LED2_PIN, GPIO.LOW)
+        GPIO.output(LED5_PIN, GPIO.HIGH)
+        time.sleep(0.2)
+        GPIO.output(LED3_PIN, GPIO.LOW)
+        time.sleep(0.2)
+        GPIO.output(LED4_PIN, GPIO.LOW)
+        time.sleep(0.2)
+        GPIO.output(LED5_PIN, GPIO.LOW)
+        time.sleep(0.2)
 
-except KeyboardInterrupt:
-    print("Zamykanie programu...")
-    GPIO.cleanup()  # Czyszczenie ustawień GPIO
+wave()
