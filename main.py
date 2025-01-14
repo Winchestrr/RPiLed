@@ -23,9 +23,9 @@ def blink_led1():
 def blink_led2():
     while True:
         GPIO.output(LED2_PIN, GPIO.HIGH)
-        time.sleep(0.3)  # 0.3 sekundy
+        time.sleep(0.05)  # 0.3 sekundy
         GPIO.output(LED2_PIN, GPIO.LOW)
-        time.sleep(0.3)
+        time.sleep(0.05)
 
 # Uruchamianie wątków
 try:
