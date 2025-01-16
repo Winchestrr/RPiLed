@@ -17,6 +17,13 @@ GPIO.setup(LED3_PIN, GPIO.OUT)
 GPIO.setup(LED4_PIN, GPIO.OUT)
 GPIO.setup(LED5_PIN, GPIO.OUT)
 
+def clean_leds():
+    GPIO.output(LED5_PIN, GPIO.LOW)
+    GPIO.output(LED4_PIN, GPIO.LOW)
+    GPIO.output(LED3_PIN, GPIO.LOW)
+    GPIO.output(LED2_PIN, GPIO.LOW)
+    GPIO.output(LED1_PIN, GPIO.LOW)
+
 # Funkcja do mrugania LED1
 def blink_led1():
     while True:
@@ -56,10 +63,7 @@ def wave():
         time.sleep(wait_time)
 
 def turn_on_off():
-    GPIO.output(LED5_PIN, GPIO.LOW)
-    GPIO.output(LED4_PIN, GPIO.LOW)
-    GPIO.output(LED3_PIN, GPIO.LOW)
-
+    time.sleep(0.05)
     GPIO.output(LED5_PIN, GPIO.HIGH)
     time.sleep(0.08)
     GPIO.output(LED5_PIN, GPIO.LOW)
@@ -119,6 +123,7 @@ def turn_on_off():
 try:
     # GPIO.cleanup()
     # wave()
+    clean_leds()
     turn_on_off()
 
 
