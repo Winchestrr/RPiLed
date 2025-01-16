@@ -65,13 +65,46 @@ def turn_on_off():
     GPIO.output(LED5_PIN, GPIO.LOW)
     time.sleep(0.03)
     GPIO.output(LED5_PIN, GPIO.HIGH)
+    time.sleep(0.8)
+    GPIO.output(LED5_PIN, GPIO.LOW)
+    time.sleep(0.05)
+    GPIO.output(LED5_PIN, GPIO.HIGH)
 
+    GPIO.output(LED4_PIN, GPIO.HIGH)
+    time.sleep(0.1)
+    GPIO.output(LED4_PIN, GPIO.LOW)
+    time.sleep(0.03)
+    GPIO.output(LED4_PIN, GPIO.HIGH)
+    time.sleep(0.037)
+    GPIO.output(LED4_PIN, GPIO.LOW)
+    time.sleep(0.05)
+    GPIO.output(LED4_PIN, GPIO.HIGH)
+    time.sleep(0.2)
+    GPIO.output(LED4_PIN, GPIO.LOW)
+    time.sleep(0.03)
+    GPIO.output(LED4_PIN, GPIO.HIGH)
 
+    GPIO.output(LED3_PIN, GPIO.HIGH)
+    time.sleep(0.15)
+    GPIO.output(LED3_PIN, GPIO.LOW)
+    time.sleep(0.04)
+    GPIO.output(LED3_PIN, GPIO.HIGH)
+    time.sleep(0.02)
+    GPIO.output(LED3_PIN, GPIO.LOW)
+    time.sleep(0.04)
+    GPIO.output(LED3_PIN, GPIO.HIGH)
+    time.sleep(0.5)
+    GPIO.output(LED3_PIN, GPIO.LOW)
+    time.sleep(0.02)
+    GPIO.output(LED3_PIN, GPIO.HIGH)
+
+    time.sleep(2)
+    GPIO.cleanup()
 
 try:
-    GPIO.cleanup()
+    # GPIO.cleanup()
     # wave()
-    # turn_on_off()
+    turn_on_off()
 
 
 except KeyboardInterrupt:
