@@ -64,19 +64,19 @@ def wave():
 
 def turn_on_off():
     time.sleep(0.05)
-    GPIO.output(LED5_PIN, GPIO.HIGH)
+    GPIO.output(LED3_PIN, GPIO.HIGH)
     time.sleep(0.08)
-    GPIO.output(LED5_PIN, GPIO.LOW)
+    GPIO.output(LED3_PIN, GPIO.LOW)
     time.sleep(0.05)
-    GPIO.output(LED5_PIN, GPIO.HIGH)
+    GPIO.output(LED3_PIN, GPIO.HIGH)
     time.sleep(0.03)
-    GPIO.output(LED5_PIN, GPIO.LOW)
+    GPIO.output(LED3_PIN, GPIO.LOW)
     time.sleep(0.03)
-    GPIO.output(LED5_PIN, GPIO.HIGH)
+    GPIO.output(LED3_PIN, GPIO.HIGH)
     time.sleep(0.8)
-    GPIO.output(LED5_PIN, GPIO.LOW)
+    GPIO.output(LED3_PIN, GPIO.LOW)
     time.sleep(0.05)
-    GPIO.output(LED5_PIN, GPIO.HIGH)
+    GPIO.output(LED3_PIN, GPIO.HIGH)
 
     time.sleep(0.2)
 
@@ -96,27 +96,27 @@ def turn_on_off():
 
     time.sleep(0.3)
 
-    GPIO.output(LED3_PIN, GPIO.HIGH)
+    GPIO.output(LED5_PIN, GPIO.HIGH)
     time.sleep(0.15)
-    GPIO.output(LED3_PIN, GPIO.LOW)
+    GPIO.output(LED5_PIN, GPIO.LOW)
     time.sleep(0.04)
-    GPIO.output(LED3_PIN, GPIO.HIGH)
+    GPIO.output(LED5_PIN, GPIO.HIGH)
     time.sleep(0.02)
-    GPIO.output(LED3_PIN, GPIO.LOW)
+    GPIO.output(LED5_PIN, GPIO.LOW)
     time.sleep(0.04)
-    GPIO.output(LED3_PIN, GPIO.HIGH)
+    GPIO.output(LED5_PIN, GPIO.HIGH)
     time.sleep(0.5)
-    GPIO.output(LED3_PIN, GPIO.LOW)
+    GPIO.output(LED5_PIN, GPIO.LOW)
     time.sleep(0.02)
-    GPIO.output(LED3_PIN, GPIO.HIGH)
+    GPIO.output(LED5_PIN, GPIO.HIGH)
 
     time.sleep(2)
 
-    GPIO.output(LED3_PIN, GPIO.LOW)
+    GPIO.output(LED5_PIN, GPIO.LOW)
     time.sleep(0.04)
     GPIO.output(LED4_PIN, GPIO.LOW)
     time.sleep(0.04)
-    GPIO.output(LED5_PIN, GPIO.LOW)
+    GPIO.output(LED3_PIN, GPIO.LOW)
 
     GPIO.cleanup()
 
