@@ -56,6 +56,8 @@ def wave():
         time.sleep(wait_time)
 
 def turn_on_off():
+    GPIO.cleanup()
+
     GPIO.output(LED5_PIN, GPIO.HIGH)
     time.sleep(0.08)
     GPIO.output(LED5_PIN, GPIO.LOW)
@@ -70,6 +72,8 @@ def turn_on_off():
     time.sleep(0.05)
     GPIO.output(LED5_PIN, GPIO.HIGH)
 
+    time.sleep(0.2)
+
     GPIO.output(LED4_PIN, GPIO.HIGH)
     time.sleep(0.1)
     GPIO.output(LED4_PIN, GPIO.LOW)
@@ -83,6 +87,8 @@ def turn_on_off():
     GPIO.output(LED4_PIN, GPIO.LOW)
     time.sleep(0.03)
     GPIO.output(LED4_PIN, GPIO.HIGH)
+
+    time.sleep(0.3)
 
     GPIO.output(LED3_PIN, GPIO.HIGH)
     time.sleep(0.15)
