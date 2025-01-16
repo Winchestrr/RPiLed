@@ -57,7 +57,7 @@ def wave():
 
 def turn_on_off():
     GPIO.output(LED5_PIN, GPIO.HIGH)
-    time.sleep(0.05)
+    time.sleep(0.08)
     GPIO.output(LED5_PIN, GPIO.LOW)
     time.sleep(0.05)
     GPIO.output(LED5_PIN, GPIO.HIGH)
@@ -66,9 +66,12 @@ def turn_on_off():
     time.sleep(0.03)
     GPIO.output(LED5_PIN, GPIO.HIGH)
 
+
+
 try:
+    GPIO.cleanup()
     # wave()
-    turn_on_off()
+    # turn_on_off()
 
 
 except KeyboardInterrupt:
