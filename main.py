@@ -110,7 +110,7 @@ def turn_on_off():
     time.sleep(0.02)
     GPIO.output(LED3_PIN, GPIO.HIGH)
 
-    time.sleep(3)
+    time.sleep(2)
 
     GPIO.output(LED3_PIN, GPIO.LOW)
     time.sleep(0.04)
