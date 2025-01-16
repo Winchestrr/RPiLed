@@ -34,7 +34,6 @@ def blink_led2():
         time.sleep(0.05)
 
 def wave():
-
     wait_time = 0.1
     while True:
         GPIO.output(LED1_PIN, GPIO.HIGH)
@@ -55,8 +54,22 @@ def wave():
         time.sleep(wait_time)
         GPIO.output(LED5_PIN, GPIO.LOW)
         time.sleep(wait_time)
+
+def turn_on_off():
+    GPIO.output(LED5_PIN, GPIO.HIGH)
+    time.sleep(0.05)
+    GPIO.output(LED5_PIN, GPIO.LOW)
+    time.sleep(0.05)
+    GPIO.output(LED5_PIN, GPIO.HIGH)
+    time.sleep(0.03)
+    GPIO.output(LED5_PIN, GPIO.LOW)
+    time.sleep(0.03)
+    GPIO.output(LED5_PIN, GPIO.HIGH)
+
 try:
-    wave()
+    # wave()
+    turn_on_off()
+
 
 except KeyboardInterrupt:
     GPIO.cleanup()
